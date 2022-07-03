@@ -17,17 +17,7 @@ namespace TicTacToe
             bool win = false;
             for (int i = 1; i<10; i++)
             {
-                for (int j = 0; j<9; j++)
-                {
-                    if (nums[j]==10)
-                    {
-                        enrery[j]="X";
-                    }
-                    else if (nums[j]==11)
-                    {
-                        enrery[j]="O";
-                    }
-                }
+                
                 int playernum = i%2;
                 if (playernum==0)
                     playernum=2;
@@ -47,6 +37,11 @@ namespace TicTacToe
                 while (answer<1 || answer>9)
                 {
                     Console.Write("Answer is not initiated\ntry again: ");
+                    answer=Convert.ToInt32(Console.ReadLine());
+                }
+                while(nums[answer-1]==10 || nums[answer-1]==11)
+                {
+                    Console.Write("That is already played\ntry again: ");
                     answer=Convert.ToInt32(Console.ReadLine());
                 }
                 if (i%2==1)
@@ -100,12 +95,34 @@ namespace TicTacToe
                     Console.Write("Answer is not initiated\ntry again: ");
                     order=Convert.ToInt32(Console.ReadLine());
                 }
+                for (int j = 0; j<9; j++)
+                {
+                    if (nums[j]==10)
+                    {
+                        enrery[j]="X";
+                    }
+                    else if (nums[j]==11)
+                    {
+                        enrery[j]="O";
+                    }
+                }
                 Console.Clear();
                 if (win==true)
                     break;
             }
             if (win==false)
             {
+                Console.Write("     |     |     \n");
+                Console.Write("  "+enrery[0]+"  |  "+enrery[1]+"  |  "+enrery[2]+"  \n");
+                Console.Write("     |     |     \n");
+                Console.Write("-----------------\n");
+                Console.Write("     |     |     \n");
+                Console.Write("  "+enrery[3]+"  |  "+enrery[4]+"  |  "+enrery[5]+"  \n");
+                Console.Write("     |     |     \n");
+                Console.Write("-----------------\n");
+                Console.Write("     |     |     \n");
+                Console.Write("  "+enrery[6]+"  |  "+enrery[7]+"  |  "+enrery[8]+"  \n");
+                Console.Write("     |     |     \n");
                 Console.Write("This game ended in a tie\nEnter 1 to exit: ");
                 int order=Convert.ToInt32(Console.ReadLine());
                 while (order!=1)
@@ -122,6 +139,17 @@ namespace TicTacToe
                     winnernum=1;
                 else if (winnernum==1)
                     winnernum=2;
+                Console.Write("     |     |     \n");
+                Console.Write("  "+enrery[0]+"  |  "+enrery[1]+"  |  "+enrery[2]+"  \n");
+                Console.Write("     |     |     \n");
+                Console.Write("-----------------\n");
+                Console.Write("     |     |     \n");
+                Console.Write("  "+enrery[3]+"  |  "+enrery[4]+"  |  "+enrery[5]+"  \n");
+                Console.Write("     |     |     \n");
+                Console.Write("-----------------\n");
+                Console.Write("     |     |     \n");
+                Console.Write("  "+enrery[6]+"  |  "+enrery[7]+"  |  "+enrery[8]+"  \n");
+                Console.Write("     |     |     \n");
                 Console.Write("Player number "+ winnernum + " won the game\nEnter 1 to exit: ");
                 int order = Convert.ToInt32(Console.ReadLine());
                 while (order!=1)
